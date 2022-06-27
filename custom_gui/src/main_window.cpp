@@ -17,7 +17,6 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QAction>
-#include <QDialog>
 
 /*****************************************************************************
 ** Namespaces
@@ -92,22 +91,15 @@ void MainWindow::onClickSaveMapButton() {
   connect(mg_, SIGNAL(saveMap()), this, SLOT(onSaveMapFinished()));
   mg_->start();
   ui.saveMapButton->setEnabled(false);
-  mapSaveDialog_ = new QDialog(this, Qt::FramelessWindowHint);
-  QMovie *movie = new QMovie("c:/dev_ws/src/custom_gui/resources/images/wait2.gif");
-  qDebug() << movie->lastErrorString();
-  qDebug() << movie->fileName();
-  QLabel *processLabel = new QLabel(mapSaveDialog_);
-  processLabel->setMovie(movie);
-  mapSaveDialog_->show();
-  movie->start();
-  movie->scaledSize();
+  mapSaveDialog_ = new MapSaveDialog(this, Qt::FramelessWindowHint);
 }
 
 void MainWindow::onSaveMapFinished(){
   qDebug() << "ggg";
   delete mg_;
   ui.saveMapButton->setVisible(false);
-  mapSaveDialog_->close();
+  mapSaveDialog_->mapSaveFinished();
+  delete mapSaveDialog_;
 }
 
 void MainWindow::closeEvent(QCloseEvent * event)

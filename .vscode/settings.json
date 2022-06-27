@@ -4,7 +4,11 @@
         "system_error": "cpp",
         "filesystem": "cpp",
         "memory_resource": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "xiosbase": "cpp",
+        "fstream": "cpp",
+        "xlocmes": "cpp",
+        "*.ipp": "cpp"
     },
     "C_Cpp.default.includePath": [
         "${default}",

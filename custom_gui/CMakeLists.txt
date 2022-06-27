@@ -16,8 +16,8 @@ add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 # qt_build provides the qt cmake glue, roscpp the comms for a default talker
 find_package(catkin REQUIRED COMPONENTS rviz roscpp nav_msgs geometry_msgs tf2)
 
-find_package(Qt5 REQUIRED Core Widgets Multimedia)
-set(QT_LIBRARIES Qt5::Widgets Qt5::Multimedia)
+find_package(Qt5 REQUIRED Core Widgets Multimedia Gui)
+set(QT_LIBRARIES Qt5::Widgets Qt5::Multimedia Qt5::Gui)
 include_directories(${catkin_INCLUDE_DIRS} ./include)
 # Use this to define what the package will export (e.g. libs, headers).
 # Since the default here is to produce only a binary, we don't worry about

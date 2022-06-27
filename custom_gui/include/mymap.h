@@ -1,3 +1,6 @@
+#ifndef MY_MAP_H
+#define MY_MAP_H
+
 #include <cstdio>
 #include "ros/ros.h"
 #include "ros/console.h"
@@ -31,3 +34,4 @@ Q_OBJECT
     void saveMap();
 };
 
+#endif // MY_MAP_H

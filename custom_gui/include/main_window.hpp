@@ -1,12 +1,12 @@
 /**
- * @file /include/ros_qt5_gui_app/main_window.hpp
+ * @file /include/main_window.hpp
  *
- * @brief Qt based gui for ros_qt5_gui_app.
+ * @brief Qt based gui
  *
- * @date November 2010
+ * @date
  **/
-#ifndef ros_qt5_gui_app_MAIN_WINDOW_H
-#define ros_qt5_gui_app_MAIN_WINDOW_H
+#ifndef MAIN_WINDOW_H
+#define MAIN_WINDOW_H
 
 /*****************************************************************************
 ** Includes
@@ -26,13 +26,12 @@
 #include <QTimer>
 
 #include <QProcess>
-#include <QDialog>
 
 #include "myviz.h"
 #include "ui_main_window.h"
 
 #include "mymap.h"
-
+#include "map_save_dialog.h"
 
 /*****************************************************************************
 ** Namespace
@@ -68,7 +67,7 @@ class MainWindow : public QMainWindow {
   QProcess* qProcess_;
   bool isAllowClose_ = false;
   MapGenerator * mg_;
-  QDialog * mapSaveDialog_;
+  MapSaveDialog * mapSaveDialog_;
 };
 
-#endif  // ros_qt5_gui_app_MAIN_WINDOW_H
+#endif  // MAIN_WINDOW_H
