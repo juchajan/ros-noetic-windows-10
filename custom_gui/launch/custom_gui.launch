@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="custom_gui" type="custom_gui" name="custom_gui" output="screen"/>
+</launch>

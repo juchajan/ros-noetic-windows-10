@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "system_error": "cpp",
+        "filesystem": "cpp",
+        "memory_resource": "cpp",
+        "istream": "cpp"
+    },
+    "C_Cpp.default.includePath": [
+        "${default}",
+        "C:\\opt\\ros\\noetic\\x64\\share"
+    ]
+}
