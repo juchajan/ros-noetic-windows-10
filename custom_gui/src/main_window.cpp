@@ -32,11 +32,10 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
     : QMainWindow(parent) {
   ui.setupUi(this);
   myviz_ = new MyViz(ui.mainHorizontalLayout);
-  // setWindowFlags(Qt::WindowStaysOnTopHint);
-  menuBar()->setStyleSheet("background-color:rgb(240, 240, 240);");
-  menuBar()->addAction("           ", this, SLOT(onClickCloseButton()));
-  menuBar()->setLayoutDirection( Qt::RightToLeft);
-  menuBar()->setMouseTracking(false);
+  setWindowFlags(Qt::WindowStaysOnTopHint);
+  // windowTitle();
+  // windowIcon();
+  connect(ui.logoButton, SIGNAL(clicked()), this, SLOT(onClickCloseButton()));
 
 
   ui.stopButton->setEnabled(false);
@@ -44,7 +43,12 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
   ui.saveMapButton->setEnabled(false);
   connect(ui.runButton, SIGNAL(clicked()), this, SLOT(onClickRunButton()));
   connect(ui.stopButton, SIGNAL(clicked()), this, SLOT(onClickStopButton()));
+  connect(ui.resetButton, SIGNAL(clicked()), this, SLOT(onClickResetButton()));
   connect(ui.saveMapButton, SIGNAL(clicked()), this, SLOT(onClickSaveMapButton()));
+}
+
+void MainWindow::onClickResetButton() {
+  myviz_->reset_();
 }
 
 void MainWindow::onClickCloseButton() {
@@ -75,7 +79,7 @@ void MainWindow::onClickStopButton() {
   QProcess* kill_process = new QProcess(this);
   kill_process->start("taskkill /t /f /pid " + QString::number(qProcess_->processId()));
   kill_process->waitForFinished(-1);
-  resetRviz();
+  myviz_->reset_();
   qProcess_->kill();
   kill_process->kill();
   delete qProcess_;
@@ -115,11 +119,6 @@ void MainWindow::closeEvent(QCloseEvent * event)
   {
     event->ignore();
   }
-}
-
-
-void MainWindow::resetRviz() {
-    myviz_->reset_();
 }
 
 //析构函数

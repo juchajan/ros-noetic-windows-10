@@ -50,14 +50,13 @@ class MainWindow : public QMainWindow {
   MainWindow(int argc, char **argv, QWidget *parent = 0);
   ~MainWindow();
   
-  void resetRviz();
-
   void closeEvent(QCloseEvent * event);
 
  public slots:
   void onClickRunButton();
   void onClickStopButton();
   void onClickCloseButton();
+  void onClickResetButton();
   void onClickSaveMapButton();
   void onSaveMapFinished();
 

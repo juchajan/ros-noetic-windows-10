@@ -11,230 +11,306 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ROS 윈도우</string>
+   <string>SLAM 실습</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../resources/images.qrc">
     <normaloff>:/images/robot.png</normaloff>:/images/robot.png</iconset>
   </property>
   <property name="locale">
    <locale language="English" country="Australia"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="mainHorizontalLayout">
+   <layout class="QVBoxLayout" name="mainVerticalLayout">
     <property name="spacing">
-     <number>30</number>
+     <number>11</number>
     </property>
     <property name="sizeConstraint">
      <enum>QLayout::SetMaximumSize</enum>
     </property>
     <item>
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QPushButton" name="logoButton">
       <property name="minimumSize">
        <size>
-        <width>370</width>
-        <height>60</height>
+        <width>0</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>370</width>
-        <height>5455315</height>
+        <width>250</width>
+        <height>64</height>
        </size>
       </property>
-      <property name="cursor">
-       <cursorShape>ArrowCursor</cursorShape>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
-      <property name="contextMenuPolicy">
-       <enum>Qt::DefaultContextMenu</enum>
+      <property name="autoFillBackground">
+       <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">QPushButton:pressed{border:none}</string>
       </property>
-      <property name="title">
-       <string>Control</string>
+      <property name="text">
+       <string>SLAM 실습</string>
       </property>
-      <layout class="QVBoxLayout" name="groupBoxVerticalLayout">
-       <item>
-        <layout class="QHBoxLayout" name="selectModeLayout">
-         <property name="spacing">
-          <number>30</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="modeComboBoxLabel">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>모드</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="modeComboBox">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <item>
-            <property name="text">
-             <string>선택</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Mapping</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Navigation</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="controlButtonLayout">
-         <property name="spacing">
-          <number>30</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="runButton">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>실행</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="stopButton">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>종료</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="saveMapButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>64</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>64</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>15</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>맵 저장</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
+      <property name="icon">
+       <iconset resource="../resources/images.qrc">
+        <normaloff>:/images/robot.png</normaloff>:/images/robot.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>60</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
      </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="mainHorizontalLayout">
+      <property name="spacing">
+       <number>30</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMaximumSize</enum>
+      </property>
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="minimumSize">
+         <size>
+          <width>370</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>370</width>
+          <height>5455315</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="title">
+         <string>Control</string>
+        </property>
+        <layout class="QVBoxLayout" name="groupBoxVerticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="selectModeLayout">
+           <property name="spacing">
+            <number>30</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="modeComboBoxLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>모드</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="modeComboBox">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <item>
+              <property name="text">
+               <string>선택</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mapping</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Navigation</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="controlButtonLayout">
+           <property name="spacing">
+            <number>30</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="runButton">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>실행</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="stopButton">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>종료</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="resetButton">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>64</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>64</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>화면 리셋</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="saveMapButton">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>64</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>64</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>맵 저장</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1674</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/images.qrc"/>
+ </resources>
  <connections/>
 </ui>
