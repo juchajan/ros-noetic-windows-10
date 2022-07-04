@@ -26,7 +26,7 @@ def pub_stop_motor():
 def main():
     try:
         remote_ip = socket.gethostbyname(socket.gethostname())
-        client_ip = "192.168.5.223"
+        client_ip = "192.168.151.223"
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.MissingHostKeyPolicy())
         ssh.connect(client_ip, username="odroid", password="odroid")

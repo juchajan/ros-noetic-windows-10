@@ -6,7 +6,6 @@ MapSaveDialog::MapSaveDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(paren
     pi = new QProgressIndicator(this);
     pi->startAnimation();
     pi->resize(300, 300);
-    exec();
 }
 
 void MapSaveDialog::closeEvent(QCloseEvent * event)

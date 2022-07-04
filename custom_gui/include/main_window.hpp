@@ -64,6 +64,7 @@ class MainWindow : public QMainWindow {
   Ui::MainWindowDesign ui;
   MyViz * myviz_;
   QProcess* qProcess_;
+  QProcess* cartoProcess_;
   bool isAllowClose_ = false;
   MapGenerator * mg_;
   MapSaveDialog * mapSaveDialog_;
