@@ -1,0 +1,10 @@
+<launch>
+  <!-- Stella -->
+  <!-- <include file="$(find stella_bringup)/launch/stella_remote.launch">
+  </include> -->
+
+  <node pkg="joyjoy" type="joyjoy_node" name="joyjoy" />
+
+  <node pkg="stella_bringup" type="py_ssh_test.py" name="py_ssh" />
+</launch>
+             

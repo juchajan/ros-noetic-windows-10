@@ -1,10 +1,8 @@
-from pydoc import cli
 import paramiko
 import socket
 import time
 import rospy
 from geometry_msgs.msg import Twist
-import sys
 
 def waitStreams(chan):
     time.sleep(1)
@@ -26,7 +24,7 @@ def pub_stop_motor():
 def main():
     try:
         remote_ip = socket.gethostbyname(socket.gethostname())
-        client_ip = "192.168.151.223"
+        client_ip = f"{remote_ip[:-3]}223"
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.MissingHostKeyPolicy())
         ssh.connect(client_ip, username="odroid", password="odroid")

@@ -108,7 +108,7 @@
          <string notr="true"/>
         </property>
         <property name="title">
-         <string>Control</string>
+         <string/>
         </property>
         <layout class="QVBoxLayout" name="groupBoxVerticalLayout">
          <item>
@@ -161,6 +161,11 @@
              <item>
               <property name="text">
                <string>선택</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Control</string>
               </property>
              </item>
              <item>

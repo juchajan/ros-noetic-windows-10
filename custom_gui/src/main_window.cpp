@@ -32,7 +32,7 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
     : QMainWindow(parent) {
   ui.setupUi(this);
   myviz_ = new MyViz(ui.mainHorizontalLayout);
-  setWindowFlags(Qt::WindowStaysOnTopHint);
+  // setWindowFlags(Qt::WindowStaysOnTopHint);
   connect(ui.logoButton, SIGNAL(clicked()), this, SLOT(onClickCloseButton()));
 
   ui.stopButton->setEnabled(false);
@@ -45,7 +45,7 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
 }
 
 void MainWindow::onClickResetButton() {
-  if (!ui.modeComboBox->isEnabled() && ui.modeComboBox->currentIndex() == 1)
+  if (!ui.modeComboBox->isEnabled() && ui.modeComboBox->currentIndex() == 2)
   {
     QProcess* kill_carto_process = new QProcess(this);
     kill_carto_process->start("taskkill /t /f /pid " + QString::number(cartoProcess_->processId()));
@@ -73,12 +73,14 @@ void MainWindow::onClickRunButton() {
     qProcess_ = new QProcess(this);
     cartoProcess_ = new QProcess(this);
     if (idx == 1) {
+      qProcess_->start("roslaunch custom_gui custom_control.launch");
+    } else if (idx == 2) {
       qProcess_->start("roslaunch custom_gui custom_slam.launch");
       cartoProcess_->start("roslaunch stella_slam stella_cartographer.launch");
       ui.saveMapButton->setEnabled(true);
       ui.saveMapButton->setVisible(true);
       cartoProcess_->waitForStarted(-1);
-    } else if (idx == 2) {
+    } else if (idx == 3) {
       qProcess_->start("roslaunch custom_gui custom_navigation.launch map_file:=c:/dev_ws/map/testtest.yaml");
     }
     qProcess_->waitForStarted(-1);
@@ -89,21 +91,23 @@ void MainWindow::onClickRunButton() {
 }
 
 void MainWindow::onClickStopButton() {
+  if (ui.modeComboBox->currentIndex() == 2) {
+    QProcess* kill_carto_process = new QProcess(this);
+    kill_carto_process->start("taskkill /t /f /pid " + QString::number(cartoProcess_->processId()));
+    kill_carto_process->waitForFinished(-1);
+    cartoProcess_->kill();
+    kill_carto_process->kill();
+    delete cartoProcess_;
+    delete kill_carto_process;
+  }
   QProcess* kill_process = new QProcess(this);
-  QProcess* kill_carto_process = new QProcess(this);
   kill_process->start("taskkill /t /f /pid " + QString::number(qProcess_->processId()));
-  kill_carto_process->start("taskkill /t /f /pid " + QString::number(cartoProcess_->processId()));
   kill_process->waitForFinished(-1);
-  kill_carto_process->waitForFinished(-1);
   myviz_->reset_();
   qProcess_->kill();
-  cartoProcess_->kill();
   kill_process->kill();
-  kill_carto_process->kill();
   delete qProcess_;
-  delete cartoProcess_;
   delete kill_process;
-  delete kill_carto_process;
   ui.modeComboBox->setEnabled(true);
   ui.runButton->setEnabled(true);
   ui.stopButton->setEnabled(false);
