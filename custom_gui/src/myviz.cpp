@@ -52,7 +52,7 @@ MyViz::MyViz( QHBoxLayout* QHBox, QWidget* parent )
   setStatusBar( 0 );
   setHideButtonVisibility(false);
   toolbar_->clear();
-  toolbar_->setStyleSheet("border: 0; height:30px;");
+  toolbar_->setStyleSheet("border: 0; background-color:rgb(236,236,236);");
   manager_->stopUpdate();
   rviz::ToolManager* tool_man = manager_->getToolManager();
   tool_man->addTool("rviz/MoveCamera");

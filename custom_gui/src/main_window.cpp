@@ -32,7 +32,7 @@ MainWindow::MainWindow(int argc, char **argv, QWidget *parent)
     : QMainWindow(parent) {
   ui.setupUi(this);
   myviz_ = new MyViz(ui.mainHorizontalLayout);
-  myviz_->setStyleSheet("background-color:rgb(236,236,236);");
+  // myviz_->setStyleSheet("background-color:rgb(236,236,236);");
   // setWindowFlags(Qt::WindowStaysOnTopHint);
   connect(ui.logoButton, SIGNAL(clicked()), this, SLOT(onClickCloseButton()));
   connect(ui.nameButton, SIGNAL(clicked()), this, SLOT(onClickCloseButton()));
