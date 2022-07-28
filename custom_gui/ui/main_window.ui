@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1674</width>
-    <height>1219</height>
+    <height>1220</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,9 @@
   <property name="windowIcon">
    <iconset resource="../resources/images.qrc">
     <normaloff>:/images/robot.png</normaloff>:/images/robot.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <property name="locale">
    <locale language="English" country="Australia"/>
@@ -29,57 +32,94 @@
      <enum>QLayout::SetMaximumSize</enum>
     </property>
     <item>
-     <widget class="QPushButton" name="logoButton">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>64</height>
-       </size>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>10</number>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>250</width>
-        <height>64</height>
-       </size>
+      <property name="bottomMargin">
+       <number>0</number>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton:pressed{border:none}</string>
-      </property>
-      <property name="text">
-       <string>SLAM 실습</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../resources/images.qrc">
-        <normaloff>:/images/robot.png</normaloff>:/images/robot.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>60</width>
-        <height>60</height>
-       </size>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
+      <item>
+       <widget class="QPushButton" name="logoButton">
+        <property name="minimumSize">
+         <size>
+          <width>388</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>388</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-image:url(:/images/Signature_K_1Row.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>60</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="nameButton">
+        <property name="font">
+         <font>
+          <family>LG Smart UI Bold</family>
+          <pointsize>28</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(255, 255, 255, 0); color: rgb(107,107,107);</string>
+        </property>
+        <property name="text">
+         <string>SLAM Viewer</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="mainHorizontalLayout">
       <property name="spacing">
-       <number>30</number>
+       <number>0</number>
       </property>
       <property name="sizeConstraint">
        <enum>QLayout::SetMaximumSize</enum>
@@ -104,17 +144,23 @@
         <property name="contextMenuPolicy">
          <enum>Qt::DefaultContextMenu</enum>
         </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">background-color:rgb(236,236,236);</string>
         </property>
         <property name="title">
          <string/>
         </property>
         <layout class="QVBoxLayout" name="groupBoxVerticalLayout">
          <item>
-          <layout class="QHBoxLayout" name="selectModeLayout">
-           <property name="spacing">
-            <number>30</number>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
            </property>
            <item>
             <widget class="QLabel" name="modeComboBoxLabel">
@@ -126,9 +172,10 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>15</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
+               <family>LG Smart UI Regular</family>
+               <pointsize>18</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
               </font>
              </property>
              <property name="text">
@@ -152,11 +199,18 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>15</pointsize>
+               <family>LG Smart UI Regular</family>
+               <pointsize>20</pointsize>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">QComboBox {
+	background-color:rgb(255,255,255);
+	border-radius: 25%;
+}
+QComboBox::drop-down {
+	image :none;
+}</string>
              </property>
              <item>
               <property name="text">
@@ -180,15 +234,75 @@
              </item>
             </widget>
            </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="controlButtonLayout">
-           <property name="spacing">
-            <number>30</number>
-           </property>
            <item>
-            <widget class="QPushButton" name="runButton">
+            <layout class="QHBoxLayout" name="controlButtonLayout">
+             <property name="spacing">
+              <number>30</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="runButton">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>64</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>64</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>LG Smart UI Regular</family>
+                 <pointsize>20</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(153, 0, 51); border-radius: 25%; color: white;</string>
+               </property>
+               <property name="text">
+                <string>실행</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="stopButton">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>64</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>64</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>LG Smart UI SemiBold</family>
+                 <pointsize>20</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(204, 204, 204); border-radius: 25%;color:white;</string>
+               </property>
+               <property name="text">
+                <string>종료</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="resetButton">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -203,18 +317,25 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>15</pointsize>
+               <family>LG Smart UI SemiBold</family>
+               <pointsize>20</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(204, 204, 204); border-radius: 25%;color:white;</string>
+             </property>
              <property name="text">
-              <string>실행</string>
+              <string>화면 리셋</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="stopButton">
+            <widget class="QPushButton" name="saveMapButton">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -229,69 +350,21 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>15</pointsize>
+               <family>LG Smart UI SemiBold</family>
+               <pointsize>20</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(204, 204, 204); border-radius: 25%;color:white;</string>
+             </property>
              <property name="text">
-              <string>종료</string>
+              <string>맵 저장</string>
              </property>
             </widget>
            </item>
           </layout>
-         </item>
-         <item>
-          <widget class="QPushButton" name="resetButton">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>화면 리셋</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="saveMapButton">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>64</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>맵 저장</string>
-           </property>
-          </widget>
          </item>
          <item>
           <spacer name="verticalSpacer_4">

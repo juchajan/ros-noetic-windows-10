@@ -45,14 +45,14 @@ MyViz::MyViz( QHBoxLayout* QHBox, QWidget* parent )
   : rviz::VisualizationFrame( parent )
   , QHBox_(QHBox)
 {
-  setSplashPath("C:/dev_ws/src/custom_gui/resources/ms_logo.png");
+  setSplashPath("C:/dev_ws/src/custom_gui/resources/images/Signature_K_1Row.png");
   initialize("c:/dev_ws/src/stella_remote_pc_n2/stella_navigation/rviz/stella_navigation.rviz");
 
   setMenuBar( 0 );
   setStatusBar( 0 );
   setHideButtonVisibility(false);
   toolbar_->clear();
-  toolbar_->setStyleSheet("border: 0;");
+  toolbar_->setStyleSheet("border: 0; height:30px;");
   manager_->stopUpdate();
   rviz::ToolManager* tool_man = manager_->getToolManager();
   tool_man->addTool("rviz/MoveCamera");
